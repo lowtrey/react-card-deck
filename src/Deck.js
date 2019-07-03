@@ -6,7 +6,7 @@ const API_BASE_URL = 'https://deckofcardsapi.com/api/deck';
 class Deck extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { deck: null, drawn: [], altContent: '', remaining: '' };
+        this.state = { deck: null, drawn: [] };
         this.getCard = this.getCard.bind(this);
     }
     async componentDidMount() {
@@ -37,12 +37,18 @@ class Deck extends React.Component {
         }
     }
     render() {
+        const cards = this.state.drawn.map(c => (
+            <Card key={c.id} name={c.name} image={c.image} />
+        ));
         return(
             <div>
                 <h1>♠︎ Card Dealer ♠︎</h1>
-                <h3>Cards Remaining: {this.state.remaining}</h3>
-                <button onClick={this.getCard} disabled={this.state.remaining === 0}>Hit Me!</button>
-                <Card card={this.state.card} altContent={this.state.altContent} />
+                <button 
+                    onClick={this.getCard} 
+                    disabled={this.state.remaining === 0}
+                >Hit Me!
+                </button>
+                {cards}
             </div>
         );
     }

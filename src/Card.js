@@ -3,9 +3,11 @@ import React from 'react';
 class Card extends React.Component {
     render() {
         return(
-            <div>
-                <img src={this.props.card} alt={this.props.altContent} />
-            </div>
+            <img 
+                className='Card'
+                src={this.props.image} 
+                alt={this.props.name} 
+            />
         );
     }
 }
