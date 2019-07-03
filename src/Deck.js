@@ -49,7 +49,8 @@ class Deck extends React.Component {
                     className='Deck-btn'
                     onClick={this.getCard} 
                     disabled={this.state.remaining === 0}
-                >Hit Me!
+                >
+                    Hit Me!
                 </button>
                 <div className='Deck-cardarea'>{cards}</div>
             </div>
